@@ -1,7 +1,7 @@
 /**
  * Created by anmolgupta on 07/10/15.
  */
-app.controller('addAssistantsController',['$scope','$http','$window',function($scope,$http,$window){
+app.controller('addAssistantsController',['$scope','$http','$window','$filter',function($scope,$http,$window,$filter){
 
     $scope.assistantName = [];
     $scope.getArray = function(num){
@@ -46,4 +46,14 @@ app.controller('addAssistantsController',['$scope','$http','$window',function($s
     },function(err){
 
     })
+
+    $scope.submit = function(){
+        console.log(JSON.stringify($scope.defaultPermissionSet));
+
+        if(!$filter('checkForAnyTrueValuePresent')($scope.defaultPermissionSet)){
+            $window.alert('Select some Permission Set')
+        }
+    }
+
+
 }]);

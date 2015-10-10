@@ -31,7 +31,11 @@
 
     <div class="row" ng-repeat="(key,value) in defaultPermissionSet[0].permission">
         <div style="float:left;padding-left: 100px"> {{key}}</div>
-        <div style="float:left;padding-left: 100px" ng-repeat="permission in defaultPermissionSet">{{permission.permission[key]}}</div>
+        <div style="float:left;padding-left: 100px" ng-repeat="permission in defaultPermissionSet">
+            <input type="checkbox" ng-model="permission.permission[key]">
+        </div>
     </div>
     </div>
+
+    <button ng-click='submit()'>submit</button>
 </div>
