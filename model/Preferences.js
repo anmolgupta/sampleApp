@@ -3,8 +3,8 @@
  */
 var Permission = require('./Permission');
 
-var Preference = function(){
-    this.feature = "";
+var Preference = function(feature){
+    this.feature = feature;
     this.permission = new Permission();
 }
 

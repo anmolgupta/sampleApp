@@ -14,26 +14,27 @@ app.controller('addAssistantsController',['$scope','$http','$window',function($s
 
     $scope.addAssistants = function(){
 
-        var assistantNames = [];
-
-        console.log($scope.assistantName);
-
-        for(var i = 0; i < $scope.numberOfAssistantsToBeAdded; i++){
-            if(!$scope.assistantName[i]) {
-                console.log($scope.assistantName[name]);
-                $window.alert('Name have been left blank');
-                return;
-            }
-
-            assistantNames.add($scope.assistantName[i]);
-        }
-
-        $http.post('/doctor/addAssistant',{assistantNames:assistantNames}).then(function(data){
-
-        },function(err){
-
-        });
+        //var assistantNames = [];
+        //
+        //console.log($scope.assistantName);
+        //
+        //for(var i = 0; i < $scope.numberOfAssistantsToBeAdded; i++){
+        //    if(!$scope.assistantName[i]) {
+        //        console.log($scope.assistantName[name]);
+        //        $window.alert('Name have been left blank');
+        //        return;
+        //    }
+        //
+        //    assistantNames.add($scope.assistantName[i]);
+        //}
+        //
+        //$http.post('/doctor/addAssistant',{assistantNames:assistantNames}).then(function(data){
+        //
+        //},function(err){
+        //
+        //});
 
         //TODO:open model popup
+        //$modal({scope: $scope, template:'./doctor/partials/manageAssistant.html',show:true})
     }
 }]);

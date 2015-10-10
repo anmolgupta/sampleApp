@@ -1,5 +1,13 @@
 <div>
 
+    <div ng-show="addedAssistants">
+        Added Assistants
+        <div ng-repeat="assistant in addedAssistants">
+            {{assistant.name}}
+            <button>Manage</button>
+        </div>
+    </div>
+
     <div>
         Select Number of Assistants to be added :
         <select ng-model="numberOfAssistantsToBeAdded" ng-options="i for i in getArray(5)">

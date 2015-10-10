@@ -5,6 +5,7 @@ var express = require('express');
 var doctor = express.Router();
 var path = require('path');
 var SendError = require('../utils/SendError');
+var assistant = require('../model/Assistant');
 
 doctor.use('/',express.static(path.join(__dirname,'/../' ,'/public')));
 doctor.get('/',function(req,res){
@@ -24,5 +25,9 @@ doctor.post('/signup',function(req,res){
 
 
 });
+
+doctor.get('/getDefaultPreference',function(req,res){
+    res.send(assistant.getDefaultPreferenceSet());
+})
 
 module.exports = doctor;
