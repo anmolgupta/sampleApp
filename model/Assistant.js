@@ -8,7 +8,7 @@ var assistant = function(){
 }
 
 assistant.getDefaultPreferenceSet = function(){
-    var retArray = {};
+    var retArray = [];
     retArray.push(new Preference('Calender'));
     retArray.push(new Preference('Practice Location'));
 

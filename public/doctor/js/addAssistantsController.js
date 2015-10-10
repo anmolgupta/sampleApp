@@ -37,4 +37,13 @@ app.controller('addAssistantsController',['$scope','$http','$window',function($s
         //TODO:open model popup
         //$modal({scope: $scope, template:'./doctor/partials/manageAssistant.html',show:true})
     }
+
+
+    $http.get('/doctor/getDefaultPreference').then(function(data){
+
+        console.log(JSON.stringify(data.data));
+        $scope.defaultPermissionSet = data.data;
+    },function(err){
+
+    })
 }]);
