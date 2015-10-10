@@ -1,0 +1,18 @@
+<div>
+
+    <div>
+        Select Number of Assistants to be added :
+        <select ng-model="numberOfAssistantsToBeAdded" ng-options="i for i in getArray(5)">
+        </select>
+    </div>
+
+    <div ng-repeat="i in getArray(numberOfAssistantsToBeAdded)">
+        name : <input type="text" ng-init="assistantName[$index]=''" ng-model="assistantName[$index]">
+
+    </div>
+
+    <div ng-show="numberOfAssistantsToBeAdded">
+        <button ng-click="addAssistants()">add assistants</button>
+    </div>
+
+</div>

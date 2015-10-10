@@ -1,0 +1,21 @@
+{
+  "name": "gurgaon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "http-status-codes": "^1.0.5",
+    "jsonwebtoken": "^5.4.0",
+    "morgan": "^1.6.1",
+    "mysql": "^2.9.0",
+    "sequelize": "^3.11.0"
+  }
+}
