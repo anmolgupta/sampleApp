@@ -5,11 +5,12 @@ app.controller('signinController',['$scope','$http',function($scope,$http){
 
     $scope.login = function(){
 
-        $http.post('/doctor/login',{email:$scope.email,password:$scope.password})
+        $http.post('/login/signin',{email:$scope.email,password:$scope.password})
             .then(function success(res){
 
-            },function error(res){
 
+            },function error(res){
+                $scope.error = true;
 
             });
     }

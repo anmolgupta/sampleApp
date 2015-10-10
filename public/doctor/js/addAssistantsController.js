@@ -1,7 +1,7 @@
 /**
  * Created by anmolgupta on 07/10/15.
  */
-app.controller('addAssistantsController',['$scope','$http','$window','$filter',function($scope,$http,$window,$filter){
+app.controller('addAssistantsController',['$scope','$http','$window','$filter','$modal',function($scope,$http,$window,$filter,$modal){
 
     $scope.assistantName = [];
     $scope.getArray = function(num){
@@ -35,7 +35,7 @@ app.controller('addAssistantsController',['$scope','$http','$window','$filter',f
         //});
 
         //TODO:open model popup
-        //$modal({scope: $scope, template:'./doctor/partials/manageAssistant.html',show:true})
+        $modal.open({scope: $scope, templateUrl:'./doctor/partials/manageAssistant1.html',show:true})
     }
 
 

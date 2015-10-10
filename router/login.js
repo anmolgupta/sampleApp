@@ -14,10 +14,21 @@ login.get('/',function(req, res) {
     res.sendFile(path.join(__dirname + '/../'+'/login.html'));
 });
 
-login.post('/login',function(req,res){
+login.post('/signin',function(req,res){
 
-    console.log(req);
-    res.send();
+    var userName = req.body;
+
+    User.findOne({where:{
+        email: userName.email,
+        password: userName.password
+    }}).then(function(user){
+
+        console.log(JSON.stringify(user));
+        res.send(user);
+
+    },function(err){
+        SendError.sendInternalError(res,err);
+    });
 
 });
 

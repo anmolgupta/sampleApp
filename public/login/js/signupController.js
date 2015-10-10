@@ -11,6 +11,7 @@ app.controller('signupController',['$scope','$http',function($scope,$http){
         },
         function(err){
             console.log("error"+JSON.stringify(err));
+            $scope.error = true;
         });
     }
 
