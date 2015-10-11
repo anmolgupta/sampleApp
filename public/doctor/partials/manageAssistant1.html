@@ -1,11 +1,31 @@
 <div class="modal-header">
-    <h3 class="modal-title">I am modal</h3>
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li ng-repeat="assistant in assistants" ng-class="{active:($parent.selectedAssistant == assistant)}">
+                <a ng-init="selectAssistant(assistant)" >{{assistant.name}}</a>
+            </li>
+        </ul>
+    </div>
 </div>
 
 <div class="modal-body">
-    <h3 class="modal-title">I am modal</h3>
+    <div ng-show="selectedAssistant.permission">
+        <div class="row">
+            <div style="float:left;padding-left: 100px"> Permissions</div>
+            <div style="float:left;padding-left: 100px" ng-repeat="permission in selectedAssistant.permission">
+                {{permission.feature}}
+            </div>
+        </div>
+
+        <div class="row" ng-repeat="(key,value) in selectedAssistant.permission[0].permission">
+            <div style="float:left;padding-left: 100px"> {{key}}</div>
+            <div style="float:left;padding-left: 100px" ng-repeat="permission in selectedAssistant.permission">
+                <input type="checkbox" ng-model="permission.permission[key]">
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="modal-footer">
-    <h3 class="modal-title">I am modal</h3>
+    <button ng-click='submit()'>Next</button>
 </div>

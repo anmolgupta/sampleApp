@@ -5,13 +5,42 @@ var express = require('express');
 var app = express();
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var jwt    = require('jsonwebtoken'),
+    config = require('./utils/config'),
+    User = require('./model/UserData');
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
+app.use(require('cookie-parser')());
+
 app.use(/^(?!.*login).*$/,function(req,res,next){
     //res.redirect('/login');
-    next();
+    console.log(req.cookies.token);
+
+    if(req.cookies.token){
+
+        jwt.verify(req.cookies.token,config.jsonWebTokenKey,function(err,decodedValue){
+
+            if(err){
+                return  res.redirect('/login/')
+            }else{
+
+                User.findById(decodedValue.id).then(function(data){
+
+                    req.doctorId = decodedValue.id;
+                    next()
+
+                },function(err){
+                    res.redirect('/login/')
+                })
+            }
+        });
+
+    } else {
+
+        res.redirect('/login/')
+    }
 });
 
 

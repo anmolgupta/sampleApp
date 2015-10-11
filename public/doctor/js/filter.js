@@ -18,4 +18,4 @@ app.filter('checkForAnyTrueValuePresent',function(){
 
         return found;
     }
-})
+});

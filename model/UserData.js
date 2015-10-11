@@ -11,7 +11,7 @@ var User = sequelize.define('user',{
             isEmail:{
                 msg:'must be an email type'
             },
-            isUnique:true
+
         }
     },
 
@@ -20,6 +20,14 @@ var User = sequelize.define('user',{
 });
 
 User.sync();
+
+
+User.findUserByEmailPassword = function(userName){
+    User.findOne({where:{
+        email: userName.email,
+        password: userName.password
+    }})
+}
 
 module.exports = User;
 

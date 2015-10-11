@@ -23,19 +23,5 @@
         <button ng-click="addAssistants()">add assistants</button>
     </div>
 
-    <div ng-show="defaultPermissionSet">
-    <div class="row">
-        <div style="float:left;padding-left: 100px"> Permissions</div>
-        <div style="float:left;padding-left: 100px" ng-repeat="permission in defaultPermissionSet">{{permission.feature}}</div>
-    </div>
 
-    <div class="row" ng-repeat="(key,value) in defaultPermissionSet[0].permission">
-        <div style="float:left;padding-left: 100px"> {{key}}</div>
-        <div style="float:left;padding-left: 100px" ng-repeat="permission in defaultPermissionSet">
-            <input type="checkbox" ng-model="permission.permission[key]">
-        </div>
-    </div>
-    </div>
-
-    <button ng-click='submit()'>submit</button>
 </div>

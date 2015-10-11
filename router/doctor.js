@@ -12,20 +12,6 @@ doctor.get('/',function(req,res){
     res.sendFile(path.join(__dirname + '/../'+'/doctor.html'));
 });
 
-
-doctor.post('/login',function(req,res){
-
-    console.log(req);
-    res.send();
-
-});
-
-doctor.post('/signup',function(req,res){
-
-
-
-});
-
 doctor.get('/getDefaultPreference',function(req,res){
     res.send(assistant.getDefaultPreferenceSet());
 })

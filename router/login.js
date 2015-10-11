@@ -5,7 +5,9 @@ var express = require('express');
 var login = express.Router();
 var path = require('path');
 var User = require('../model/UserData'),
-    SendError = require('../utils/SendError');
+    SendError = require('../utils/SendError'),
+    jwt    = require('jsonwebtoken'),
+    config = require('../utils/config');
 
 login.use('/',express.static(path.join(__dirname,'/../' ,'/public')));
 
@@ -18,13 +20,19 @@ login.post('/signin',function(req,res){
 
     var userName = req.body;
 
+
     User.findOne({where:{
         email: userName.email,
         password: userName.password
     }}).then(function(user){
 
         console.log(JSON.stringify(user));
+
+        var token = jwt.sign(user, config.jsonWebTokenKey);
+
+        res.cookie('token',token);
         res.send(user);
+
 
     },function(err){
         SendError.sendInternalError(res,err);
